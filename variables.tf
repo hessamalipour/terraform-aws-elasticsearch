@@ -70,6 +70,12 @@ variable "warm_enabled" {
   description = "Whether AWS UltraWarm is enabled"
 }
 
+variable "cold_storage_enable" {
+  type        = bool
+  default     = false
+  description = "Whether to enable cold storage for Elasticsearch domain"
+}
+
 variable "warm_count" {
   type        = number
   default     = 2

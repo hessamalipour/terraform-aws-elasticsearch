@@ -151,6 +151,10 @@ resource "aws_elasticsearch_domain" "default" {
     warm_count               = var.warm_enabled ? var.warm_count : null
     warm_type                = var.warm_enabled ? var.warm_type : null
 
+    cold_storage_options {
+      enabled = var.cold_storage_enable
+    }
+
     dynamic "zone_awareness_config" {
       for_each = var.availability_zone_count > 1 && var.zone_awareness_enabled ? [true] : []
       content {
